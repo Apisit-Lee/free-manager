@@ -1,20 +1,21 @@
 import {randomString} from '../helpers/utils';
 
 export default class Form {
-  id;
+  id = randomString(8);
   name;
   items;
-  createTime;
-  lastModifiedTime;
-
-  constructor() {
-    this.id = randomString(8);
-    this.createTime = new Date().getTime();
-    this.lastModifiedTime = new Date().getTime();
-  }
+  createTime = new Date().getTime();
+  lastModifiedTime = new Date().getTime();
   
   get id() {
     return this.id;
+  }
+
+  /**
+   * @param {string} val
+   */
+  set id(val) {
+    this.id = val;
   }
 
   get name() {
@@ -41,6 +42,13 @@ export default class Form {
 
   get createTime() {
     return this.createTime;
+  }
+
+  /**
+   * @param {number} time
+   */
+  set createTime(time) {
+    this.createTime = time;
   }
 
   get lastModifiedTime() {
